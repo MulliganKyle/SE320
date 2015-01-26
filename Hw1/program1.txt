@@ -1,0 +1,17 @@
+Script started on Mon Jan 12 11:15:14 2015
+%cat program1.adb 
+with ada.text_io; use ada.text_IO;
+procedure program1 is
+begin
+   put("Hello from the world of Ada");
+end program1;
+%gnatmake program1.adb
+gcc -c program1.adb
+gnatbind -x program1.ali
+gnatlink program1.ali
+%program1
+Hello from the world of Ada
+%exit
+exit
+
+Script done on Mon Jan 12 11:15:58 2015

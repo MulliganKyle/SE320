@@ -1,0 +1,61 @@
+V "GNAT Lib v4.4"
+M P W=b
+P SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+U program3%b		program3.adb		9912d0a0 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W primeandfactor%s	primeandfactor.adb	primeandfactor.ali
+
+D ada.ads		20090114110545 9c7dd3ea
+D a-except.ads		20090414134449 b54b55de
+D a-finali.ads		20090414134820 9eaacebd
+D a-filico.ads		20090414134951 9299732a
+D a-inteio.ads		20090114110546 03bc737c
+D a-ioexce.ads		20090114110546 be0900a0
+D a-stream.ads		20090414134419 34aca5be
+D a-tags.ads		20090414134730 bfa07446
+D a-textio.ads		20090414134822 fe8af46e
+D a-tiinio.ads		20090414134653 949a7272
+D a-unccon.ads		20090114110545 51e09df2
+D interfac.ads		20090414134625 a69cad5c
+D i-cstrea.ads		20090414134744 e1e064a9
+D primeandfactor.ads	20150123172802 ee8fad3a
+D program3.adb		20150123175826 8aabfa88
+D system.ads		20090414134649 df55302f
+D s-crtl.ads		20090414134633 997234a1
+D s-exctab.ads		20090414134921 5c1c61ae
+D s-ficobl.ads		20090414134918 8bb681e5
+D s-finimp.ads		20090414135057 9449f4cb
+D s-finroo.ads		20090414134701 1408f9d1
+D s-parame.ads		20090414134647 f32e56e9
+D s-secsta.ads		20090414134519 7bae3621
+D s-soflin.ads		20090414134425 0c6fd39d
+D s-stache.ads		20090414134825 257b3be8
+D s-stalib.ads		20090414135007 52b793d5
+D s-stoele.ads		20090414134841 ed966df3
+D s-stoele.adb		20090414134835 e9998c78
+D s-stratt.ads		20090414134859 fef7c1da
+D s-traent.ads		20090414134453 bd5f2753
+D s-unstyp.ads		20090414134601 c0f9fae5
+D s-wchcon.ads		20090414134706 ab028799
+X 1 ada.ads
+16K9*Ada 19e8 15|10r6 10r19 19r10 20r10 21r10
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[10|45] 15|10w23 19r14
+X 9 a-textio.ads
+48K13*Text_IO 506e16 15|10w10 20r14 21r14
+166U14*New_Line 15|21r22
+242U14*Put 15|20r22
+X 10 a-tiinio.ads
+65U14*Put 15|19r30[5|18]
+X 14 primeandfactor.ads
+9K9*primeAndFactor 13e19 15|10w40 18r10 23r10
+10V13*prime{boolean} 15|18r25
+12U14*factor 15|23r25
+X 15 program3.adb
+12U11*program3 12b11 27l5 27t13
+13i4 theNumber{integer} 17r10 18r31 19r34 23r32 25m7 25r19
+

@@ -1,0 +1,226 @@
+Script started on Fri Jan 23 11:01:38 2015
+%cat program3.adb
+------------------
+--SE320
+--Hw2
+--Kyle Mulligan
+--program3
+------------------
+
+
+
+with ada.text_io, ada.integer_text_io, primeAndFactor;
+
+procedure program3 is
+   theNumber: Integer :=2;
+
+begin
+   
+   while theNumber <=99 loop
+      if primeAndFactor.prime(theNumber) then
+	 ada.integer_text_io.put(theNumber,0);
+	 Ada.text_io.put(" is prime.");
+	 ada.text_io.new_line;
+      else
+	 primeAndFactor.factor(theNumber);
+      end if;
+      theNumber:= theNumber +1;
+   end loop;
+end program3;
+
+%cat primeandfactor.ads
+-----------------
+--SE320
+--HW2
+--Kyle Mulligan
+--primeAndFactor package spec
+-----------------
+
+
+package primeAndFactor is
+   function prime (number: integer) return boolean;
+
+   procedure factor (number: integer);
+end primeAndFactor;
+%cat primeandfactor.adb
+------------------------
+--SE320
+--Hw2
+--KyleMulligan
+--primeAndFactor package body
+-----------------------
+
+with ada.text_io, ada.integer_text_io;
+package body primeAndFactor is
+
+
+   function prime ( number: integer) return boolean is 
+      modulus: integer :=1 ;--initialized to 1 to ensure loop entry
+      count: integer :=2;
+   begin
+      while modulus/=0 and count<number  loop
+	 modulus:= number mod count;
+	 count:=count+1;
+      end loop;
+
+      if modulus=0 then
+	 return False;
+      else
+	 return True;
+      end if;
+   end prime;
+
+
+   procedure factor ( number: integer) is
+      modulus, result: integer;
+      divisor: integer :=2;
+      first: integer := 1;--used for printing the first number of the factorization
+   begin
+      result:= number;
+      ada.text_io.put("the factorization of ");
+      ada.integer_text_io.put(number,0);
+      ada.text_io.put(" is: ");
+      while divisor<number and result/=1  loop
+
+	 modulus:= result mod divisor;
+
+	 if modulus=0 then
+
+	    if first=1 then
+	       result:=result/divisor;
+	       ada.integer_text_io.put(divisor,0);
+	       first:=0;
+
+	    else
+	       result:=result/divisor;
+	       ada.text_io.put("*");
+	       ada.integer_text_io.put(divisor,0);
+	    end if;
+
+
+	 else
+            divisor:= divisor+1;
+	 end if;
+      end loop;
+      ada.text_io.new_line;
+   end factor;
+
+end primeAndFactor;
+%
+%
+%
+%gnatmake program3.adb
+gcc -c program3.adb
+gcc -c primeandfactor.adb
+gnatbind -x program3.ali
+gnatlink program3.ali
+%
+%
+%
+%program3
+2 is prime.
+3 is prime.
+the factorization of 4 is: 2*2
+5 is prime.
+the factorization of 6 is: 2*3
+7 is prime.
+the factorization of 8 is: 2*2*2
+the factorization of 9 is: 3*3
+the factorization of 10 is: 2*5
+11 is prime.
+the factorization of 12 is: 2*2*3
+13 is prime.
+the factorization of 14 is: 2*7
+the factorization of 15 is: 3*5
+the factorization of 16 is: 2*2*2*2
+17 is prime.
+the factorization of 18 is: 2*3*3
+19 is prime.
+the factorization of 20 is: 2*2*5
+the factorization of 21 is: 3*7
+the factorization of 22 is: 2*11
+23 is prime.
+the factorization of 24 is: 2*2*2*3
+the factorization of 25 is: 5*5
+the factorization of 26 is: 2*13
+the factorization of 27 is: 3*3*3
+the factorization of 28 is: 2*2*7
+29 is prime.
+the factorization of 30 is: 2*3*5
+31 is prime.
+the factorization of 32 is: 2*2*2*2*2
+the factorization of 33 is: 3*11
+the factorization of 34 is: 2*17
+the factorization of 35 is: 5*7
+the factorization of 36 is: 2*2*3*3
+37 is prime.
+the factorization of 38 is: 2*19
+the factorization of 39 is: 3*13
+the factorization of 40 is: 2*2*2*5
+41 is prime.
+the factorization of 42 is: 2*3*7
+43 is prime.
+the factorization of 44 is: 2*2*11
+the factorization of 45 is: 3*3*5
+the factorization of 46 is: 2*23
+47 is prime.
+the factorization of 48 is: 2*2*2*2*3
+the factorization of 49 is: 7*7
+the factorization of 50 is: 2*5*5
+the factorization of 51 is: 3*17
+the factorization of 52 is: 2*2*13
+53 is prime.
+the factorization of 54 is: 2*3*3*3
+the factorization of 55 is: 5*11
+the factorization of 56 is: 2*2*2*7
+the factorization of 57 is: 3*19
+the factorization of 58 is: 2*29
+59 is prime.
+the factorization of 60 is: 2*2*3*5
+61 is prime.
+the factorization of 62 is: 2*31
+the factorization of 63 is: 3*3*7
+the factorization of 64 is: 2*2*2*2*2*2
+the factorization of 65 is: 5*13
+the factorization of 66 is: 2*3*11
+67 is prime.
+the factorization of 68 is: 2*2*17
+the factorization of 69 is: 3*23
+the factorization of 70 is: 2*5*7
+71 is prime.
+the factorization of 72 is: 2*2*2*3*3
+73 is prime.
+the factorization of 74 is: 2*37
+the factorization of 75 is: 3*5*5
+the factorization of 76 is: 2*2*19
+the factorization of 77 is: 7*11
+the factorization of 78 is: 2*3*13
+79 is prime.
+the factorization of 80 is: 2*2*2*2*5
+the factorization of 81 is: 3*3*3*3
+the factorization of 82 is: 2*41
+83 is prime.
+the factorization of 84 is: 2*2*3*7
+the factorization of 85 is: 5*17
+the factorization of 86 is: 2*43
+the factorization of 87 is: 3*29
+the factorization of 88 is: 2*2*2*11
+89 is prime.
+the factorization of 90 is: 2*3*3*5
+the factorization of 91 is: 7*13
+the factorization of 92 is: 2*2*23
+the factorization of 93 is: 3*31
+the factorization of 94 is: 2*47
+the factorization of 95 is: 5*19
+the factorization of 96 is: 2*2*2*2*2*3
+97 is prime.
+the factorization of 98 is: 2*7*7
+the factorization of 99 is: 3*3*11
+%
+%
+%
+%
+%exit
+exit
+
+Script done on Fri Jan 23 11:02:35 2015
