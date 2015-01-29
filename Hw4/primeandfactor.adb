@@ -13,6 +13,11 @@ package body primeAndFactor is
       modulus: integer :=1 ;--initialized to 1 to ensure loop entry
       count: integer :=2;
    begin
+
+      if number <=0 then
+	 return false;
+      end if;
+
       while modulus/=0 and count<number  loop
 	 modulus:= number mod count;
 	 count:=count+1;
