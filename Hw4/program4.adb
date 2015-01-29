@@ -10,8 +10,6 @@
 with ada.text_io, ada.integer_text_io, primeAndFactor, ada.io_exceptions;
 
 procedure program4 is
-   S: string:="abc";
-   N: Integer;
    Not_Prime: exception;
    userInput: Integer range -20..50;
    done: boolean :=false;
@@ -32,8 +30,8 @@ begin
       exception
 	 when Constraint_Error =>
 	    ada.text_io.put_line("Your number is out of range, try again.");
-	 when ada.io_exceptions.data_Error =>
-	    ada.text_io.get_line(S, N);
+	 when ada.io_exceptions.Data_Error =>
+	    ada.text_io.skip_line;
 	    ada.text_io.put_line("That's not even a number try again.");
 	 when Not_Prime =>
 	    ada.text_io.put_line("That's not a prime, try again.");
